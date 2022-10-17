@@ -5,10 +5,10 @@ class RichestPeople extends Controller
 
     public function __construct()
     {
-        $this->richestPeopleModel = $this->model('RichestPeople');
+        $this->richestPeopleModel = $this->model('RichPerson');
     }
 
-    public function index($land = '(Land)', $age = '(Leeftijd)')
+    public function index($person = '(Person)', $age = '(Age)')
     {
         // Laat de models de gegevens uit de database halen via method getCountries()
         $records = $this->richestPeopleModel->getRichestPeople();
@@ -20,13 +20,13 @@ class RichestPeople extends Controller
                         <td>$value->Networth</td>
                         <td>$value->Age</td>
                         <td>$value->Company</td>
-                        <td><a href='" . URLROOT . "/RichestPeople/delete/$value->Id'>Delete</td>
+                        <td><a href='" . URLROOT . "/RichestPeople/delete/$value->Id'>X</td>
                       </tr>";
         }
 
         // Stuur de gegevens uit de model naar de vieuw via het $data array
         $data = [
-            'title' => "Landen van de wereld",
+            'title' => "De vijf rijkste mensen ter",
             'rows' => $rows,
         ];
 
