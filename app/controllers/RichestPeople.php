@@ -38,6 +38,7 @@ class RichestPeople extends Controller
     public function delete($id)
     {
         $this->richestPeopleModel->deleteRichestPeople($id);
-        header("Location: " . URLROOT . "/RichestPeople/delete");
+        echo "record is succesvol verwijderd";
+        header("Refresh: 3; URL=" . URLROOT . "/RichestPeople/index");
     }
 }
