@@ -8,7 +8,7 @@ class RichestPeople extends Controller
         $this->richestPeopleModel = $this->model('RichPerson');
     }
 
-    public function index($person = '(Person)', $age = '(Age)')
+    public function index()
     {
         // Laat de models de gegevens uit de database halen via method getCountries()
         $records = $this->richestPeopleModel->getRichestPeople();
@@ -26,7 +26,7 @@ class RichestPeople extends Controller
 
         // Stuur de gegevens uit de model naar de vieuw via het $data array
         $data = [
-            'title' => "De vijf rijkste mensen ter",
+            'title' => "De vijf rijkste mensen ter wereld",
             'rows' => $rows,
         ];
 
@@ -38,6 +38,6 @@ class RichestPeople extends Controller
     public function delete($id)
     {
         $this->richestPeopleModel->deleteRichestPeople($id);
-        header("Location: " . URLROOT . "/RichestPeople/index");
+        header("Location: " . URLROOT . "/RichestPeople/delete");
     }
 }
